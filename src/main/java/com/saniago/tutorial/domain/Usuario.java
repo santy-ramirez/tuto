@@ -2,9 +2,7 @@ package com.saniago.tutorial.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -14,15 +12,15 @@ import java.util.Set;
 @Getter
 @Setter
 @RequiredArgsConstructor
-public class User {
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
-    @NotBlank
+    @NonNull
     private String username;
-    @NotBlank
+    @NonNull
     private String email;
-    @NotBlank
+    @NonNull
     private String password;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name="user_roles",
